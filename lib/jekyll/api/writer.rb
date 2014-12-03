@@ -10,13 +10,15 @@ module Jekyll
       end
 
       def write_json
-        FileUtils.rm_r('api') if Dir.exists?('api')
-
         @site.pages.each do |page|
           json = JSON.dump(page.data)
           path = File.join('api', page.path.sub('.md', '.json'))
-          FileUtils.mkdir_p(File.dirname(path))
+          dir = File.dirname(path)
+          name = File.basename(path)
+
+          FileUtils.mkdir_p(dir)
           File.write(path, json)
+          @site.static_files << Jekyll::StaticFile.new(@site, @site.source, dir, name)
         end
       end
 

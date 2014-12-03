@@ -2,4 +2,4 @@
 /.bundle/
 /Gemfile.lock
 /pkg/
-/test/fixtures/api/**/*.json
+/test/fixtures/api/
