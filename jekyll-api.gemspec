@@ -6,10 +6,10 @@ require 'jekyll/api/version'
 Gem::Specification.new do |spec|
 
   spec.name          = 'jekyll-api'
-  spec.version       = Jekyll::Api::VERSION
+  spec.version       = Jekyll::API::VERSION
   spec.authors       = ['Greg Scott']
   spec.email         = ['i@gregoryjscott.com']
-  spec.summary       = %q{Create APIs using Jekyll page data.}
+  spec.summary       = %q{Create APIs from Jekyll page data.}
   spec.homepage      = 'https://github.com/gregoryjscott/jekyll-api'
   spec.license       = 'MIT'
 

@@ -13,11 +13,13 @@ describe 'Jekyll::API' do
 
   let(:site) { Jekyll::Site.new(config) }
 
-  before(:each) do
-    site.process
-  end
+  before(:each) { site.process }
 
-  it 'does nothing' do
+  it 'creates JSON files for all pages' do
+    page_count = site.pages.count
+    json_count = Dir[File.join(File.join('_site', 'api'), '**', '*')].count { |file| File.file?(file) }
+
+    assert_equal page_count, json_count
   end
 
 end
