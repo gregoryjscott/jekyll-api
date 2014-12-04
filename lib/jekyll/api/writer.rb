@@ -12,10 +12,10 @@ module Jekyll
       def write_json
         @site.pages.each do |page|
           page_dir = File.dirname(page.path)
-          basename = File.basename(page.path, ".*")
+          page_name = File.basename(page.path, ".*")
           sub_dir = ''
           sub_dir = File.join(sub_dir, page_dir) unless page_dir == '.'
-          sub_dir = File.join(sub_dir, basename) unless basename == 'index'
+          sub_dir = File.join(sub_dir, page_name) unless page_name == 'index'
 
           path = @site.source
           path = File.join(path, sub_dir) unless sub_dir == ''

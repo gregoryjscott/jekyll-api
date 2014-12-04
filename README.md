@@ -15,19 +15,19 @@ For example, the **Jekyll::API** plugin will generate a `/people/jill/data.json`
 
 ```json
 {
-  "name": "Jill"
+  "title": "Jill"
 }
 ```
 
- using the Jekyll page `/people/jill.md`.
+ from the Jekyll page data in `/people/jill.md`.
 ```yaml
 ---
-name: Jill
+title: Jill
 ---
-Hi, my name is {{ page.name }}
+Hi, my name is {{ page.title }}
 ```
 
-If you set `permalink: pretty` in your `_config.yml`, the resulting HTTP endpoints will be:
+If you set `permalink: pretty` in `_config.yml`, the resulting HTTP endpoints will be:
 * HTML - `/people/jill/`
 * JSON - `/people/jill/data.json`
 
