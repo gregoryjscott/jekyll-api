@@ -11,7 +11,7 @@ Follow [Jekyll's instructions for installing Jekyll plugins](http://jekyllrb.com
 1. Define data as front-matter in your Markdown Jekyll pages.
 2. Enjoy the API.
 
-For example, the **Jekyll::API** plugin will generate a `api/people/jill.json` file
+For example, the **Jekyll::API** plugin will generate a `/people/jill/data.json` file
 
 ```json
 {
@@ -27,7 +27,9 @@ name: Jill
 Hi, my name is {{ page.name }}
 ```
 
-The resulting HTTP endpoints will be `/people/jill` (HTML) and `api/people/jill.json` (JSON).
+If you set `permalink: pretty` in your `_config.yml`, the resulting HTTP endpoints will be:
+* HTML - `/people/jill/`
+* JSON - `/people/jill/data.json`
 
 ## Contributing
 

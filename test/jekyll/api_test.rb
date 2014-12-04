@@ -14,19 +14,21 @@ describe 'Jekyll::API' do
   let(:site) { Jekyll::Site.new(config) }
 
   before(:each) do
-    generated_files = File.join(Dir.pwd, 'test', 'fixtures', 'api')
-    FileUtils.rm_r(generated_files) if Dir.exists?(generated_files)
-
+    clean
     site.process
   end
 
   it 'creates JSON files for all pages' do
-    page_count = site.pages.count
+    json_files_count = json_files.count { |file| File.file?(file) }
+    assert_equal site.pages.count, json_files_count
+  end
 
-    json_dir = File.join(File.join('_site', 'api'), '**', '*')
-    json_count = Dir[json_dir].count { |file| File.file?(file) }
+  def json_files
+    Dir[File.join('_site', '**', 'data.json')]
+  end
 
-    assert_equal page_count, json_count
+  def clean
+    json_files.each { |json_file| FileUtils.rm(json_file) }
   end
 
 end
