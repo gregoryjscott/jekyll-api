@@ -4,6 +4,8 @@ module Jekyll
   module API
     class Writer < Jekyll::Generator
 
+      priority :low
+
       def generate(site)
         @site = site
         Dir.chdir(@site.source) { write_json }
