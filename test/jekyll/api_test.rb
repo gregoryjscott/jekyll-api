@@ -23,8 +23,18 @@ describe 'Jekyll::API' do
     assert_equal site.pages.count, json_files_count
   end
 
+
+  it 'creates JSON files for all posts' do
+    post_json_files_count = post_json_files.count { |file| File.file?(file) }
+    assert_equal site.posts.count, post_json_files_count
+  end
+
   def json_files
     Dir[File.join('_site', '**', 'data.json')]
+  end
+
+  def post_json_files
+    Dir[File.join('_site', '**', 'post.json')]
   end
 
   def clean

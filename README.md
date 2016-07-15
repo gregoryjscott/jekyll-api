@@ -31,6 +31,8 @@ If you set `permalink: pretty` in `_config.yml`, the resulting HTTP endpoints wi
 * HTML - `/people/jill/`
 * JSON - `/people/jill/data.json`
 
+For post it will generate a  `/people/jill/post.json` file with complete post data.
+
 ## Contributing
 
 1. Fork it (https://github.com/gregoryjscott/jekyll-api/fork).
